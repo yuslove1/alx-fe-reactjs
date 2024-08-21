@@ -1,4 +1,4 @@
-import userContext from "../contexts/UserContext";
+import userContext from "../UserContext";
 import { useContext } from "react";
 
 
