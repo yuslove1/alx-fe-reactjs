@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css'
 import ProfilePage from './components/ProfilePage';
-import userContext from './UserContext';
+import userContext from './components/UserContext';
 
   function App() {
     const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
