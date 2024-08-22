@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home";
-  import Contact from "./components/Contact/Contact";
-  import About from "./components/About/About";
-import Services from "./components/Service/Services"
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+  import Contact from "./components/Contact";
+  import About from "./components/About";
+import Services from "./components/Services"
 
 
 
