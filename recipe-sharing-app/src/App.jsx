@@ -7,7 +7,6 @@ function App() {
   return (
    <div>
     <AddRecipeForm />
-  
     <RecipeList />
    </div>
   )
