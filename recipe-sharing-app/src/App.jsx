@@ -1,15 +1,22 @@
 // import './App.css'
-import AddRecipeForm from './components/AddRecipeForm';
-import RecipeList from './components/RecipeList';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './components/home';
+import RecipeDetails from './components/RecipeDetails';
+
+
 
 function App() {
- 
+
   return (
-   <div>
-    <AddRecipeForm />
-    <RecipeList />
-   </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path=":id" element={<RecipeDetails />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
