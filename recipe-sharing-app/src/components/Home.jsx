@@ -6,8 +6,7 @@ import SearchBar from './SearchBar'
 function Home() {
   return (
     <div>
-      <SearchBar />
-      <AddRecipeForm />
+      <SearchBar />  
       <RecipeList />
     </div>
   )
