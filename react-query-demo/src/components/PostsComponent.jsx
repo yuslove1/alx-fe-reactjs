@@ -9,7 +9,15 @@ const fetchPosts = async() => {
 
 function PostComponet() {
     //fetch the data using useQuery
-const {data, error, isLoading,isError refetch} = useQuery('post', fetchPosts);
+const {data, error, isLoading,isError, refetch} = useQuery('post', fetchPosts, 
+   //cache configuration
+    {
+        cacheTime: 1000 * 60 * 10, //10min
+        staleTime : 1000 * 60 * 2, //2min
+        refetchOnWindowFocus: true, //Refetch data when the window gains focus
+        keepPreviousData: true //Keep previous data while new data is being fetched
+    }
+);
 
 //hamdle loading state
 if(isLoading)return <div>loading......</div>
