@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function RegistrationForm() {
-    const [name, setName] = useState('')
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
 
@@ -13,13 +13,13 @@ function RegistrationForm() {
 
         let errorOb = {};
 
-        if (!name) { errorOb = { ...errorOb, name: "Name is required" } };
+        if (!username) { errorOb = { ...errorOb, username: "Username is required" } };
         if (!email) { errorOb = { ...errorOb, email: "Email is required" } };
         if (!password) { errorOb = { ...errorOb, password: "Password is required" } };
         setError(errorOb);
 
         if (!Object.keys(errorOb).length) {
-            setName('')
+            setUsername('')
             setEmail('')
             setPassword('')
             alert("form submitted");
@@ -37,15 +37,15 @@ function RegistrationForm() {
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    name='name'
-                    value={name}
+                    name='username'
+                    value={username}
                     onChange={(e) => {
-                        setName(e.target.value);
-                        clearError('name');
+                        setUsername(e.target.value);
+                        clearError('username');
                     }}
-                    placeholder='Enter your name'
+                    placeholder='Enter your username'
                 />
-                {errorMessage.name ? (<p style={{ color: 'red' }}>{errorMessage.name}</p>) : ('')}
+                {errorMessage.username ? (<p style={{ color: 'red' }}>{errorMessage.username}</p>) : ('')}
 
                 <input
                     type="email"
@@ -72,8 +72,6 @@ function RegistrationForm() {
                 {errorMessage.password ? (<p style={{ color: 'red' }}>{errorMessage.password}</p>) : ('')}
 
                 <button type="submit">Submit</button>
-
-
             </form>
         </div>
     )
