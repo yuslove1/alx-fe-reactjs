@@ -1,12 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
+import Layout from './components/Layout';
 import Profile from './components/profile';
-import ProfileDetails from './components/ProfileDetails';
-import ProfileSettings from './components/ProfileSettings';
 import Blog from './components/Blog';
 import BlogPost from './components/BlogPost';
-import ProtectedRoutes from './components/ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 import NotFound from './components/NotFound';
+import ProfileRoute from './components/ProfileRoute';
 
 
 
@@ -15,18 +14,31 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/profile" element={<Profile />}>
-            <Route path="details" element={<ProfileDetails />} />
-            <Route path="settings" element={<ProfileSettings />} />
-          </Route>
+        <Route path="/" element={<Layout />}>
+        <Route element={<ProtectedRoute />}>
+          <Route path="profile/*" element={<Profile />} />
         </Route>
-        <Route path='/blog' element={<Blog />} />
-        <Route path='/blog/:postId' element={<BlogPost />} />
-        <Route path= '*' element={<NotFound/>} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="blog/:postId" element={<BlogPost />} />
+          <Route path="*" element={<NotFound />} />
+
+
+
+          {/* <Route path="settings" element={<ProfileSettings />} />
+          <Route path="details" element={<ProfileDetails />} />
+        </Route> */}
+          {/* The protected route */}
+          {/* <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route> */}
+          {/* <ProtectedRoute path="/profile">
+          <Route index element={<Profile />} />
+        </ProtectedRoute> */}
+          {/* <ProtectedRoute path="/profile" element={<Profile />} /> */}
+
+        </Route>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
   )
 }
 

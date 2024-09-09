@@ -21,7 +21,7 @@ const useRecipeStore = () => create(set => ({
     })),
     //update the store for favorites and recommendations
     favorites: [],
-    recommendation: [],
+    recommendations: [],
     addFavorite: (recipeId) => set((state) => ({ favorites: [...state.favorites, recipeId] })),
     removeFavorite: (recipeId) => set(state => ({
         favorites: state.favorites.filter(favorite => favorite.id !== recipeId)
