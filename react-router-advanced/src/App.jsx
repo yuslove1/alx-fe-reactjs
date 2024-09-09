@@ -18,8 +18,8 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="profile/*" element={<Profile />} />
         </Route>
-          <Route path="blog" element={<Blog />} />
-          <Route path="blog/:id" element={<BlogPost />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
 
 
