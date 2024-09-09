@@ -19,7 +19,7 @@ function App() {
           <Route path="profile/*" element={<Profile />} />
         </Route>
           <Route path="blog" element={<Blog />} />
-          <Route path="blog/:postId" element={<BlogPost />} />
+          <Route path="blog/:id" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
 
 
