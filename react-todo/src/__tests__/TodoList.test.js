@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import {test, expect} from '@jest/globals';
 import '@testing-library/jest-dom/extend-expect';
-import TodoList from './components/TodoList';
+import TodoList from '../components/TodoList';
 
 test('verify todo initial component', () => {
     render(<TodoList />);
