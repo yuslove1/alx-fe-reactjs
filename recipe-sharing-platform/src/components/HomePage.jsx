@@ -21,7 +21,7 @@ function HomePage() {
     //   }
     // }
   return (
-    <div className='container mx-auto grid lg:grid-cols-2 xl:grid-cols-3 gap-4 justify-center items-center'>
+    <div className='container mx-auto grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 justify-center items-center'>
       {recipes.map(recipe => (
         (<div key={recipe.id} className=' bg-gray-100 mx-auto sm:max-w-xs md:max-w-lg rounded-lg shadow-lg hover:shadow-xl flex overflow-hidden'>
           <img src={recipe.image} alt="recipe" srcSet="" className='rounded-tl-lg rounded-bl-lg' />
@@ -38,3 +38,4 @@ function HomePage() {
 
 export default HomePage
 
+// lg:grid-cols-2 xl:grid-cols-3 gap-4
