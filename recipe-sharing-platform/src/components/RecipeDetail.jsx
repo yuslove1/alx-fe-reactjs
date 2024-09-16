@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function RecipeDetail() {
   const { id } = useParams();
@@ -36,7 +36,9 @@ function RecipeDetail() {
         {recipe.instructions? <p className="mb-5 text-red-950">{recipe.instructions}</p> : <p className="font-thin italic text-sm">no cooking instructions availaible.......</p>}
       </div>
       </div>
-      
+
+      <Link to="/" > Go Home
+      </Link> 
     </div>
   );
 }
