@@ -4,11 +4,11 @@ function AddRecipeForm() {
   const [formData, setFormData] = useState({
     title: "",
     ingredients: "",
-    instructions: "",
+    steps: "",
     errorMessage: {
       title: "",
       ingredients: "",
-      instructions: "",
+      steps: "",
     },
   });
 
@@ -21,8 +21,8 @@ function AddRecipeForm() {
     if (!formData.title.trim()) errors.title = "Please enter title";
     if (!formData.ingredients.trim())
       errors.ingredients = "Please enter ingredients";
-    if (!formData.instructions.trim())
-      errors.instructions = "Please enter instruction";
+    if (!formData.steps.trim())
+      errors.steps = "Please enter instruction";
 
     if (Object.keys(errors).length > 0) {
       setFormData({ ...formData, errorMessage: errors });
@@ -77,15 +77,15 @@ function AddRecipeForm() {
 
         <div className="mb-8">
           <textarea
-            name="instructions"
+            name="steps"
             id=""
-            value={formData.instructions}
+            value={formData.steps}
             onChange={handleChange}
-            placeholder="The cooking instructions"
+            placeholder="The cooking steps"
             className="outline-double w-full h-24  bg-transparent p-2 rounded-md"
           ></textarea>
-          {formData.errorMessage.instructions ? (
-            <p>{formData.errorMessage.instructions}</p>
+          {formData.errorMessage.steps ? (
+            <p>{formData.errorMessage.steps}</p>
           ) : (
             ""
           )}
