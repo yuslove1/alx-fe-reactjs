@@ -5,36 +5,34 @@ function AddRecipeForm() {
     title: "",
     ingredients: "",
     steps: "",
-    errorMessage: {
-      title: "",
-      ingredients: "",
-      steps: "",
-    },
   });
+  const [errors, setErrors] = useState({
+    title: "",
+    ingredients: "",
+    steps: ""
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     //Validation
-    const errors = {};
+    const err = {};
 
-    if (!formData.title.trim()) errors.title = "Please enter title";
-    if (!formData.ingredients.trim())
-      errors.ingredients = "Please enter ingredients";
-    if (!formData.steps.trim())
-      errors.steps = "Please enter instruction";
+    if (!formData.title.trim()) err.title = "Please enter title";
+    if (!formData.ingredients.trim()) err.ingredients = "Please enter ingredients";
+    if (!formData.steps.trim()) err.steps = "Please enter cooking steps";
 
-    if (Object.keys(errors).length > 0) {
-      setFormData({ ...formData, errorMessage: errors });
+    if (Object.keys(err).length > 0) {
+      setErrors(err);
     }
   };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
-      errorMessage: { ...formData.errorMessage, [e.target.name]: "" },
+      [e.target.name]: e.target.value
     });
+    setErrors({...errors, [e.target.name] : "" })
   };
 
   return (
@@ -53,8 +51,8 @@ function AddRecipeForm() {
             placeholder="Enter the Title"
             className="outline-double w-full bg-transparent p-2 rounded-md"
           />
-          {formData.errorMessage.title ? (
-            <p>{formData.errorMessage.title}</p>
+          {errors.title ? (
+            <p className="text-red-500">{errors.title}</p>
           ) : (
             ""
           )}
@@ -68,8 +66,8 @@ function AddRecipeForm() {
             placeholder="List of ingredient"
             className="outline-double w-full h-24  bg-transparent p-2 rounded-md"
           ></textarea>
-          {formData.errorMessage.ingredients ? (
-            <p>{formData.errorMessage.ingredients}</p>
+          {errors.ingredients ? (
+            <p className="text-red-500">{errors.ingredients}</p>
           ) : (
             ""
           )}
@@ -84,8 +82,8 @@ function AddRecipeForm() {
             placeholder="The cooking steps"
             className="outline-double w-full h-24  bg-transparent p-2 rounded-md"
           ></textarea>
-          {formData.errorMessage.steps ? (
-            <p>{formData.errorMessage.steps}</p>
+          {errors.steps ? (
+            <p className="text-red-500">{errors.steps}</p>
           ) : (
             ""
           )}
