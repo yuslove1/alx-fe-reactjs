@@ -44,7 +44,6 @@ e.preventDefault();
       <hr />
 
       <div>
-        <h2>Login</h2>
         {isLoading && <p>Loading......</p>}
         {isError && <p>Looks like we cant find the user</p>}
         {login && (
