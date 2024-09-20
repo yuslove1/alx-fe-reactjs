@@ -3,7 +3,7 @@ import { fetchUserData } from "../services/githubService";
 
 function Search() {
   const [username, setUsername] = useState("");
-  const [userData, setUserdata] = useState(null);
+  const [login, setLogin] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -15,7 +15,7 @@ e.preventDefault();
     fetchUserData(username)
       .then((data) => {
         setIsLoading(false);
-        setUserdata(data);
+        setLogin(data);
         // console.log(data);
       })
       .catch((error) => {
@@ -47,13 +47,13 @@ e.preventDefault();
         <h2>Login</h2>
         {isLoading && <p>Loading......</p>}
         {isError && <p>Looks like we cant find the user</p>}
-        {userData && (
+        {login && (
           <div>
             <div>
-              <img src={userData.avatar_url} alt="avater" />
+              <img src={login.avatar_url} alt="avater" />
             </div>
-            <h2>{userData.name}</h2>
-            <a href={userData.html_url}>{userData.html_url}</a>
+            <h2>{login.name}</h2>
+            <a href={login.html_url}>{login.html_url}</a>
           </div>
         )}
       </div>
