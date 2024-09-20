@@ -7,7 +7,8 @@ function Search() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+e.preventDefault();
     setIsLoading(true)
     setIsError(false);
 
@@ -28,16 +29,22 @@ function Search() {
 
   return (
     <div>
-      <input
+        <form onSubmit={handleSearch}>
+        <input
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Enter github username"
       />
-      <button onClick={handleSearch}>Search</button>
+
+      <button type="submit">Search</button>
+        </form>
+      
+     
       <hr />
 
       <div>
+        <h2>Login</h2>
         {isLoading && <p>Loading......</p>}
         {isError && <p>Looks like we cant find the user</p>}
         {userData && (
