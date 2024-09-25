@@ -32,8 +32,8 @@ function RecipeDetail() {
         {recipe.ingredients? <p className="mb-5 text-red-950">{recipe.ingredients}</p> :  <p className="font-thin italic text-sm">no ingredients availaible.......</p>}
        
        
-        <h3 className="text-red-800 mt-3 font-bold">COOKING INSTRUCTIONS </h3>
-        {recipe.instructions? <p className="mb-5 text-red-950">{recipe.instructions}</p> : <p className="font-thin italic text-sm">no cooking instructions availaible.......</p>}
+        <h3 className="text-red-800 mt-3 font-bold">COOKING STEPS </h3>
+        {recipe.steps? <p className="mb-5 text-red-950">{recipe.steps}</p> : <p className="font-thin italic text-sm">no cooking steps availaible.......</p>}
       </div>
       </div>
 

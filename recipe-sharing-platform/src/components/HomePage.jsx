@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AddRecipeForm from "./AddRecipeForm";
 
 function HomePage() {
   const [recipes, setRecipes] = useState([]);
@@ -21,6 +22,7 @@ function HomePage() {
   //   }
   // }
   return (
+    
     <div className="container mx-auto grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 justify-center items-center">
       {recipes.map((recipe) => (
         // eslint-disable-next-line react/jsx-key
