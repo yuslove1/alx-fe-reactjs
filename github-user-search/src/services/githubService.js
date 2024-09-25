@@ -24,7 +24,7 @@
 
 import axios from "axios";
 
-export const fetchUserData = async (username, location, minRepoCount, page) => {
+export const fetchUserData = async (username, location, minRepos, page) => {
   try {
     let query = username ? `${username} in:login` : "";
 
@@ -32,8 +32,8 @@ export const fetchUserData = async (username, location, minRepoCount, page) => {
       query += ` location:${location}`;
     }
 
-    if (minRepoCount) {
-      query += ` repos:>${minRepoCount}`;
+    if (minRepos) {
+      query += ` repos:>${minRepos}`;
     }
 
     const response = await axios.get(
