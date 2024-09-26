@@ -30,12 +30,12 @@ function Search() {
     //     console.error("Error fetching data", error)
     //   });
 
-    const data = await fetchUserData(username, location, minRep, page);
+    const data = await fetchUserData(username, location, minRep);
 
     if (data && data.items.length > 0) {
       setIsLoading(false);
       setUserData(data.items);
-      setPage(page + 1);
+      // setPage(page + 1);
     } else {
       setIsError(true);
       setIsLoading(false);
@@ -97,12 +97,12 @@ function Search() {
       <hr className="shadow-2xl" />
 
       <div className="max-w-2xl mx-auto">
-        {isLoading && <p>Loading......</p>}
-        {isError && <p>Looks like we cant find the user</p>}
-        <div className="container grid grid-cols-3 gap-3 mx-auto mt-6">
+        {isLoading &&<div className="mx-auto h-screen flex justify-center items-center font-semibold italic text-2xl "><p>Loading........</p></div>}
+        {isError && <div className="mx-auto h-screen text-red-300 flex justify-center items-center text-2xl font-extrabold"><p>Looks like we cant find the user</p></div>}
+        <div className="container grid sm:grid-cols-2 xs:grid-cols-1 gap-4 mx-auto mt-6 bg-slate-100">
           {Array.isArray(userData) &&
             userData.map((user) => (
-              <div key={user.id} className="flex justify-center">
+              <div key={user.id} className="flex justify-between bg-slate-300 rounded-lg">
                 <div>
                   <img src={user.avatar_url} alt="avater" />
                 </div>

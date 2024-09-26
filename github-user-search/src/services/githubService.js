@@ -24,7 +24,7 @@
 
 import axios from "axios";
 
-export const fetchUserData = async (username, location, minRepos, page) => {
+export const fetchUserData = async (username, location, minRepos) => {
   try {
     let query = username ? `${username} in:login` : "";
 
@@ -37,7 +37,7 @@ export const fetchUserData = async (username, location, minRepos, page) => {
     }
 
     const response = await axios.get(
-      `https://api.github.com/search/users?q=${query}&page=${page}`
+      `https://api.github.com/search/users?q=${query}`
     );
     return response.data;
   } catch (error) {
